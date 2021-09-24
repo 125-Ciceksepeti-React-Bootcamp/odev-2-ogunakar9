@@ -1,0 +1,147 @@
+/* Core variables */
+@import "base/vars";
+
+/* CSS Reset */
+@import "base/reset";
+
+/*font*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+@mixin default-header-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $nav-color;
+  height: 5rem;
+  font-size: 1.5rem;
+}
+
+body {
+  font-family: $my-font;
+  background-color: $bg-color;
+}
+
+//header & footer related
+
+header {
+  @include default-header-footer;
+  border-bottom: 2px solid $grey-color;
+  box-shadow: 0 3px $grey-shadow;
+  margin-bottom: 1rem;
+
+  .header-container {
+    width: 70%;
+    p {
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+}
+
+footer {
+  @include default-header-footer;
+  border-top: 2px solid $grey-color;
+  margin-top: 1rem;
+  padding: 1rem;
+  .footer-container {
+    width: 70%;
+    p {
+      font-weight: lighter;
+      text-align: center;
+      @media (max-width: 800px) {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+//card content
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @media (max-width: 350px) {
+    padding: 0;
+  }
+  .card-size-fixer {
+    width: 90%;
+    @media (max-width: 350px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  column-gap: 1rem;
+  row-gap: 1rem;
+  padding: 4rem;
+
+  @media (max-width: 1000px) {
+    padding: 2rem;
+  }
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 4px 7px 7px rgba(0, 0, 0, 0.5);
+  border: 2px solid $grey-color;
+  transition: 200ms all;
+
+  &:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    transform: translateY(-3px);
+  }
+
+  .card-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+    margin-bottom: 1rem;
+    border: 2px solid $green-color;
+    border-radius: 1rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem;
+    }
+  }
+
+  .card-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid $green-color;
+    border-radius: 1em;
+
+    .card-text-name {
+      p {
+        margin-top: 1rem;
+      }
+    }
+
+    .card-text-nums {
+      display: flex;
+      flex-direction: column;
+      margin-top: 0.6rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
